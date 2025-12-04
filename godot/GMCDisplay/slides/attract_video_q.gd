@@ -3,8 +3,8 @@ extends Node
 
 @onready var video_player = $VideoStreamPlayer
 
-const intro = preload("res://resources/attract.ogv")
-const bg_loop = preload("res://resources/bg-loop-attract.ogv")
+const intro = preload("res://modes/attract/resources/JD_Attract.ogv")
+const bg_loop = preload("res://modes/attract/resources/JD_Attract.ogv")
 
 func _ready():
 	video_player.stream = intro
