@@ -26,6 +26,25 @@ timed_switches:
         events_when_released: login_started
 ```
 
+Must adjust `glf.vbs` file to account for long press:
+
+```
+Public Sub Glf_KeyDown(ByVal keycode)
+    If glf_gameStarted = True Then
+		If keycode = StartGameKey Then
+			If glf_canAddPlayers = True Then
+				Glf_AddPlayer()
+			End If
+			DispatchPinEvent "s_start_active", True
+		End If
+	Else
+		If keycode = StartGameKey Then
+			DispatchRelayPinEvent "request_to_start_game", True
+			DispatchPinEvent "s_start_active", True
+		End If
+	End If
+```
+
 ### |Login Mode|
 
 - Accessed when a player long-presses the StartButton (>=2 seconds)
